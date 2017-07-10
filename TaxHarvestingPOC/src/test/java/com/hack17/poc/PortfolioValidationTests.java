@@ -57,8 +57,17 @@ public class PortfolioValidationTests {
 		allocations.forEach(alloc->{
 			assertNotNull(alloc.getFund());
 			assertNotNull(alloc.getFund().getSymbol());
+			assertNotNull(alloc.getQuantity());
+			assertNotNull(alloc.getTransactionDate());
 			assertNotNull(alloc.getExpenseRatio());
 		});
+	}
+	
+	@Test
+	public void portfolioInvestorProfile(){
+		long portfolioId = 101;
+		Portfolio portfolio = portfolioRepository.loadPortfolio(portfolioId);
+		assertNotNull(portfolio.getInvestorProfile());
 	}
 
 	private List<Allocation> getAllocations(long portfolioId) {

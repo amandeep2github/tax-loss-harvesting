@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Portfolio {
-	List<Allocation> allocations = new ArrayList<>();
+	private List<Allocation> allocations = new ArrayList<>();
+	private InvestorProfile investorProfile;
 
 	public List<Allocation> getAllocations() {
 		// TODO Auto-generated method stub
@@ -15,5 +16,15 @@ public class Portfolio {
 		allocations.add(allocation);
 		
 	}
+
+	public InvestorProfile getInvestorProfile() {
+		return investorProfile;
+	}
+
+	public void setInvestorProfile(InvestorProfile investorProfile) {
+		this.investorProfile = investorProfile;
+	}
+	
+	
 
 }
