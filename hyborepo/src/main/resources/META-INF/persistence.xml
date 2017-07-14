@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+
+	<persistence-unit name="application" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.hack17.hybo.Item</class>
+        <class>com.hack17.hybo.Order</class>
+        <class>com.hack17.hybo.domain.Fund</class>
+        <class>com.hack17.hybo.domain.Allocation</class>
+        <class>com.hack17.hybo.domain.InvestorProfile</class>
+        <class>com.hack17.hybo.domain.Portfolio</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+	</persistence-unit>
+
+</persistence>
