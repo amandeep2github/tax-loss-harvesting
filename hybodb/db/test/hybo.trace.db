@@ -1,0 +1,12 @@
+07-15 21:05:17 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "ALLOCATION" not found; SQL statement:
+alter table Allocation drop constraint FK4D42D00B12EB26E [42102-156]
+07-15 21:05:17 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "PORTFOLIO" not found; SQL statement:
+alter table Portfolio drop constraint FKBA4F2528CB9C44A6 [42102-156]
+07-15 21:05:17 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "PORTFOLIO_ALLOCATION" not found; SQL statement:
+alter table Portfolio_Allocation drop constraint FK34AC147782716DFB [42102-156]
+07-15 21:05:17 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "PORTFOLIO_ALLOCATION" not found; SQL statement:
+alter table Portfolio_Allocation drop constraint FK34AC1477B333BE66 [42102-156]

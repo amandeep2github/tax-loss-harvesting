@@ -12,14 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.hack17.poc.service.ReferenceDataService;
+import com.hack17.hybo.repository.ReferenceDataRepository;
+
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes={TaxHarvestingPocApplication.class})
 public class ReferenceDataServiceTests {
 
 	@Autowired
-	private ReferenceDataService refDataService;
+	private ReferenceDataRepository refDataRepo;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -38,7 +39,7 @@ public class ReferenceDataServiceTests {
 
 	@Test
 	public void marketPriceOfSecurity() {
-		assertEquals(124d, refDataService.getCurrentPrice("VTI"),0);
+		assertEquals(124d, refDataRepo.getLatestPrice("VTI"),0);
 	}
 
 }

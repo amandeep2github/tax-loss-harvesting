@@ -14,12 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.hack17.hybo.domain.Allocation;
+import com.hack17.hybo.domain.Portfolio;
+import com.hack17.hybo.repository.PortfolioRepository;
+import com.hack17.hybo.service.TLHAdvisorService;
 import com.hack17.poc.domain.Action;
-import com.hack17.poc.domain.Allocation;
-import com.hack17.poc.domain.Portfolio;
 import com.hack17.poc.domain.TLHAdvice;
-import com.hack17.poc.repository.PortfolioRepository;
-import com.hack17.poc.service.TLHAdvisorService;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes={TaxHarvestingPocApplication.class})
@@ -49,7 +49,7 @@ public class SimpleSellAndBuyThresholdStrategyTests {
 	@Test
 	public void noStockInlossBeyondThreshold() {
 		long portfolioId = 101;
-		Portfolio portfolio = portfolioRepository.loadPortfolio(portfolioId);
+		Portfolio portfolio = portfolioRepository.getPortfolio(portfolioId);
 		TLHAdvice tlhAdvice = tlhAdvisorService.advise(portfolio);
 		assertEquals(2,  tlhAdvice.getRecommendations().size());
 		assertEquals(Action.HOLD, tlhAdvice.getRecommendations().get(0).getAction());
@@ -59,7 +59,7 @@ public class SimpleSellAndBuyThresholdStrategyTests {
 	@Test
 	public void recommendationForSell() {
 		long portfolioId = 102;
-		Portfolio portfolio = portfolioRepository.loadPortfolio(portfolioId);
+		Portfolio portfolio = portfolioRepository.getPortfolio(portfolioId);
 		TLHAdvice tlhAdvice = tlhAdvisorService.advise(portfolio);
 		assertEquals(2,  tlhAdvice.getRecommendations().size());
 		assertEquals(Action.HOLD, tlhAdvice.getRecommendations().get(0).getAction());
@@ -70,7 +70,7 @@ public class SimpleSellAndBuyThresholdStrategyTests {
 	@Test
 	public void recommendationForSellWithWashSale() {
 		long portfolioId = 103;
-		Portfolio portfolio = portfolioRepository.loadPortfolio(portfolioId);
+		Portfolio portfolio = portfolioRepository.getPortfolio(portfolioId);
 		TLHAdvice tlhAdvice = tlhAdvisorService.advise(portfolio);
 		assertEquals(2,  tlhAdvice.getRecommendations().size());
 		assertEquals(Action.HOLD, tlhAdvice.getRecommendations().get(0).getAction());
@@ -79,7 +79,7 @@ public class SimpleSellAndBuyThresholdStrategyTests {
 	}
 	
 	private List<Allocation> getAllocations(long portfolioId) {
-		Portfolio portfolio = portfolioRepository.loadPortfolio(portfolioId);
+		Portfolio portfolio = portfolioRepository.getPortfolio(portfolioId);
 		List<Allocation> allocations = portfolio.getAllocations();
 		return allocations;
 	}

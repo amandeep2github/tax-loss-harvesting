@@ -1,7 +1,6 @@
 package com.hack17.poc.repository;
 
 import static com.hack17.poc.util.DateTimeUtil.getDate;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,33 +10,30 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hack17.poc.domain.Allocation;
 import com.hack17.poc.domain.Fund;
-import com.hack17.hybo.domain.Portfolio;
+import com.hack17.poc.domain.Portfolio;
 
 
 @Repository
 public class PortfolioRepository {
 	
-	@PersistenceContext
-	private EntityManager entityManager;
 	
-	//@Autowired
-	//private ProfileRepository profileRepository;
+	
+	@Autowired
+	private ProfileRepository profileRepository;
 	private Map<Long, Portfolio> portfolioData = new HashMap<>();
 	public Portfolio loadPortfolio(long portfolioId) {
-		return entityManager.find(Portfolio.class, 101l);
-		//return portfolioData.get(portfolioId);
+		
+		return portfolioData.get(portfolioId);
 	}
 	
-	//@PostConstruct
-	/*private void init(){
+	@PostConstruct
+	private void init(){
 		Portfolio portfolio = new Portfolio();
 		portfolio.addAllocation(new Allocation(new Fund("VTI"),120.4,1000,50d, getDate("APR 01, 2017"), .04));
 		portfolio.addAllocation(new Allocation(new Fund("VTV"),44.01,1200,50d, getDate("APR 01, 2017"), .06));
@@ -53,6 +49,6 @@ public class PortfolioRepository {
 		portfolio.addAllocation(new Allocation(new Fund("VEA"),105.01,1200,50d, getDate("JUL 01, 2017"), .06));
 		portfolio.setInvestorProfile(profileRepository.getProfile(201));
 		portfolioData.put(103l, portfolio);
-	}*/
+	}
 
 }

@@ -1,0 +1,12 @@
+jdbc:h2:tcp://localhost/D:/CodeConcepts/hackovation2017/code/git/tax-loss-harvesting/hybodb/db/test/hybo;AUTO_SERVER=TRUE
+
+jdbc:h2:tcp://localhost/D:/CodeConcepts/hackovation2017/code/git/tax-loss-harvesting/hybodb/db/test/hybo;AUTO_SERVER=TRUE
+
+
+D:\CodeConcepts\hackovation2017\code\git\tax-loss-harvesting\hybodb\db\test\hybo
+
+D:/CodeConcepts/hackovation2017/code/git/tax-loss-harvesting/hybodb
+
+;MV_STORE=FALSE;MVCC=FALSE;AUTO_SERVER=TRUE
+
+jdbc:h2:tcp://localhost/D:/CodeConcepts/hackovation2017/code/git/tax-loss-harvesting/hybodb/db/test/hybo;AUTO_SERVER=TRUE

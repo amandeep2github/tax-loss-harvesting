@@ -1,4 +1,4 @@
-package com.hack17.hybo;
+package com.hack17.hybo.repository;
 
 import java.util.HashMap;
 import java.util.Map;

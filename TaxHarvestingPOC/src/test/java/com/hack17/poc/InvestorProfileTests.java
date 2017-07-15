@@ -14,9 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.hack17.poc.domain.InvestorProfile;
-import com.hack17.poc.domain.RiskTolerance;
-import com.hack17.poc.repository.ProfileRepository;
+import com.hack17.hybo.domain.InvestorProfile;
+import com.hack17.hybo.domain.RiskTolerance;
+import com.hack17.hybo.repository.ProfileRepository;
+
+
+//import com.hack17.poc.repository.ProfileRepository;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes={TaxHarvestingPocApplication.class})
@@ -43,11 +46,10 @@ public class InvestorProfileTests {
 
 	@Test
 	public void requiredAttributes() {
-		InvestorProfile profile = profileRepository.getProfile(201);
+		InvestorProfile profile = profileRepository.getProfile(501);
 		assertNotNull(profile.getDateOfBirth());
 		assertEquals(RiskTolerance.MEDIUM, profile.getRiskTolerance());
-		assertEquals(26, profile.getTimeHorizon().getMonths(), 0);
-		assertEquals(2, profile.getTimeHorizon().getYears(),0);
+		assertEquals(26, profile.getInvestmentHorizonInMonths(), 0);		
 	}
 
 }
